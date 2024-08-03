@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Usando Requisições HTTP (REST)</title>
+</head>
+<body style="background-color: yellow">
+    <button onclick="getData()">Pedir prato</button>
+    <button onclick="postData()">Pagar um prato</button>
+    <div id="response"></div>
+
+    <script>
+        function getData(params) {
+            //Escolher prato
+            fetch('/api/data')
+            .then(resposta => resposta.json())
+            .then(dados =>{
+                document.getElementById('response').innerText = JSON.stringify(dados)
+            })
+            .catch(erro => console.error('Erro:', error));
+        }
+
+        function postData(params) {
+            const dataToSend = {key: 'value'}
+
+            fetch('/api/data',  {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToSend),
+            })
+            .then(responder => responder.json())
+            .then(dados =>{
+                document.getElementById('response').innerText = JSON.stringify(dados);
+            })
+            .catch(error => console.error('Erro:', error));
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # starFlask
 
+## Usando Requisições HTTP (REST)
+
 ## Descrição
 `starFlask` é um projeto simples criado para aprender e praticar os conceitos básicos do framework Flask. Este projeto demonstra a criação de rotas básicas, manipulação de dados e integração com Arduino usando Python e Flask.
 
