@@ -9,12 +9,15 @@
 <body style="background-color: yellow">
     <button onclick="getData()">Pedir prato</button>
     <button onclick="postData()">Pagar um prato</button>
+    <textarea name="area" id="texto">aaaaa</textarea>
     <div id="response"></div>
 
     <script>
+        //Manda fazer
         function getData(params) {
             //Escolher prato
             fetch('/api/data')
+            //E recebe a resposta
             .then(resposta => resposta.json())
             .then(dados =>{
                 document.getElementById('response').innerText = JSON.stringify(dados)
@@ -23,8 +26,8 @@
         }
 
         function postData(params) {
-            const dataToSend = {key: 'value'}
-
+            let dataToSend = {key: 'value'}
+            //Manda fazer
             fetch('/api/data',  {
                 method: 'POST',
                 headers: {
@@ -32,6 +35,7 @@
                 },
                 body: JSON.stringify(dataToSend),
             })
+            //E recebe a resposta
             .then(responder => responder.json())
             .then(dados =>{
                 document.getElementById('response').innerText = JSON.stringify(dados);
